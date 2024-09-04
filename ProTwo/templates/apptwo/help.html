@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/paint.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff6f61, #ffcc33);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #4a90e2;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #4a90e2;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff6f61;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        footer a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #ff6f61;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Help Page</h1>
+        <p>Need assistance? You're in the right place! Explore our help resources or reach out for more support.</p>
+        <a href="#" class="button">Get Support</a>
+
+        <footer>
+            <p>© 2024 My Website. All Rights Reserved. <br> <a href="https://www.example.com">Visit our site</a></p>
+        </footer>
+    </div>
+    <img src="{% static 'panda.webp' %}" alt="try again">
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Business Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6347;
+        }
+
+        .hero-section {
+            background: url("{%static 'app2\panda.webp'%}") no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-primary {
+            padding: 10px 25px;
+            background-color: #ff6347;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e5533d;
+        }
+
+        .about-section,
+        .services-section {
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        .service-box {
+            background: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>YourLogo</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                {% comment %} <li><a  href="http://127.0.0.1:8000/users/">Users</a></li> {% endcomment %}
+                {% comment %} <li><a  href="{url 'dosri'}">Users</a></li> {% endcomment %}
+                {% comment %} <li><a href="{% url 'users_page' %}">Users</a></li> {% endcomment %}
+                <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+                <a href="{% url 'app2:test' %}">Testing</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'app2:user_logout' %}">Logout</a>
+                {% else %}
+                    <a href="{% url 'app2:user_login' %}">login</a>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h2>Grow Your Business with Our Expertise</h2>
+            <p>We provide top-notch web design, graphic design, and social media management services to help your business thrive online.</p>
+            <a href="#contact" class="btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We are a team of passionate professionals dedicated to elevating your online presence through creative and reliable solutions. Whether you need a new website or a revamp of your social media strategy, we’ve got you covered.</p>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Expertise Level</th>
+                    <th>Years of Experience</th>
+                </tr>
+                <tr>
+                    <td>Web Design</td>
+                    <td>Advanced</td>
+                    <td>5 Years</td>
+                </tr>
+                <tr>
+                    <td>Graphic Design</td>
+                    <td>Expert</td>
+                    <td>7 Years</td>
+                </tr>
+                <tr>
+                    <td>Social Media Management</td>
+                    <td>Intermediate</td>
+                    <td>3 Years</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-box">
+                <h3>Web Design</h3>
+                <p>Creating responsive, user-friendly websites that represent your brand.</p>
+            </div>
+            <div class="service-box">
+                <h3>Graphic Design</h3>
+                <p>Designing eye-catching visuals that resonate with your audience.</p>
+            </div>
+            <div class="service-box">
+                <h3>Social Media Management</h3>
+                <p>Boosting your social media presence to drive engagement and growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Business. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

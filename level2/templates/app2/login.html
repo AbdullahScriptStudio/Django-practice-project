@@ -1,0 +1,23 @@
+{% extends 'app2/base.html' %}
+
+{% block title %}Login Page{% endblock title %}
+
+
+{% block content %}
+    <h1>Please Login</h1>
+    
+    <form action = "{% url 'app2:user_login' %}" method = "post">
+    {% csrf_token %}
+    <label for= "username">Username:</label>
+    <input type ="text" name = "username" placeholder= "abdullah">
+    
+    <label for= "password">Password:</label>
+    <input type ="password" name = "password" placeholder= "abdullah123">
+
+    <input type="submit" name ="" value ="Login">
+    </form>
+
+
+{% endblock content %}
+    
+    

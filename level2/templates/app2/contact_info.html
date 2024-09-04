@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'app2/base.html' %}
+{% block title %}Contact page {% endblock %}
+
+{% block extra_css %}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .contact-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+    }
+    .contact-container h2 {
+        margin-top: 0;
+        color: #333;
+    }
+    .contact-container label {
+        display: block;
+        margin: 15px 0 5px;
+        color: #555;
+    }
+    .contact-container input, .contact-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .contact-container input[type="submit"] {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .contact-container input[type="submit"]:hover {
+        background-color: #218838;
+    }
+
+{% endblock %}
+
+
+{% block content %}
+<h2>Contact Us</h2>
+<form method="post">
+    {{ form }}
+    <input type="submit" value="Send Message">
+    {% csrf_token %} 
+</form>
+{% endblock %}
+
